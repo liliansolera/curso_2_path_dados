@@ -45,7 +45,7 @@ match tipo_processo:
 
                 for i in range(qnt_alunos):
                     aluno = st.text_input('Digite o nome do aluno', key=f'aluno_{i}')
-                    
+                    st.warning(aluno)
                     if aluno in st.session_state.notas_turma:
                         st.warning('Nome já existe')
                     
