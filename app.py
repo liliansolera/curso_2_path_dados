@@ -49,16 +49,16 @@ match tipo_processo:
                     if st.button('Adicionar aluno', key=f'btn_{i}'):
                         if aluno in st.session_state.notas_turma:
                             st.warning('Nome já existe')
-                    else:
-                        qnt_notas = int(st.number_input('Quantas notas?', min_value=1, max_value=10, step=1, key=f'nota_{i}')) #quantas notas para aquele aluno
-                        
-                        notas_aluno = [] #crio lista vazia para aquele aluno
-
-                        for x in range (qnt_notas): #runs once for each grade
+                        else:
+                            qnt_notas = int(st.number_input('Quantas notas?', min_value=1, max_value=10, step=1, key=f'nota_{i}')) #quantas notas para aquele aluno
                             
-                            nota = float(st.number_input(f'Digite a {x+1} nota:', min_value=0, max_value=10, step=1, key=f'nota_{i}_{x}'))
-                            notas_aluno.append(nota) #add grade to each  students list
-                        st.session_state.notas_turma[aluno] = notas_aluno #cria {aluno:lista de notas}
+                            notas_aluno = [] #crio lista vazia para aquele aluno
+
+                            for x in range (qnt_notas): #runs once for each grade
+                                
+                                nota = float(st.number_input(f'Digite a {x+1} nota:', min_value=0, max_value=10, step=1, key=f'nota_{i}_{x}'))
+                                notas_aluno.append(nota) #add grade to each  students list
+                            st.session_state.notas_turma[aluno] = notas_aluno #cria {aluno:lista de notas}
             case 'remover': 
                 aluno_removido = st.text_input('Qual o nome do aluno? Preencha nome completo')
                 status_remover = st.selectbox(f'Confirma remover o aluno {aluno_removido} da lista?',  ['sim', 'nao'])
