@@ -55,7 +55,7 @@ match tipo_processo:
 
                     for x in range (qnt_notas): #runs once for each grade
                         
-                        nota = float(st.number_input(f'Digite a {x} nota:', min_value=0, max_value=10, step=1, key=f'nota_{i}_{x}'))
+                        nota = float(st.number_input(f'Digite a {x+1} nota:', min_value=0, max_value=10, step=1, key=f'nota_{i}_{x}'))
                         notas_aluno.append(nota) #add grade to each  students list
                     st.session_state.notas_turma[aluno] = notas_aluno #cria {aluno:lista de notas}
             case 'remover': 
